@@ -1,0 +1,3 @@
+ssql databae creation
+User: user_id
+Category: cat_id, cat_name , date(added), user_id
