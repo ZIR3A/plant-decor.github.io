@@ -1,5 +1,6 @@
 <?php
-$db = mysqli_connect("localhost","root","","plant_shop");
+// $db = mysqli_connect("localhost","root","","plant_shop");
+$db = mysqli_connect("remotemysql.com", "69v3kWP3fl", "VQ88LrJeAr", "69v3kWP3fl");
 function getpro(){
 	global $db;
 	$get_product="select * from product order by 1 DESC LIMIT 0,6";
