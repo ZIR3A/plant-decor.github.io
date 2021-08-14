@@ -12,7 +12,7 @@ if (isset($_GET['order_id'])) {
 	$order_id = $_GET['order_id'];
 	 
 	$get_order = "select  * from customer_order where order_id = '$order_id'";
-	$run_q = mysqli_query($con, $get_order);
+	$run_q = mysqli_query($db, $get_order);
 	$row_q= mysqli_fetch_array($run_q);
 	$cid = $row_q['customer_id'];
 	$cname = $row_q['c_name'];
@@ -25,7 +25,7 @@ if (isset($_GET['order_id'])) {
 	$dadd = $row_q['delivery_address'];
 	
 	$get_img = "select  * from product where p_id ='$pro_id'";
-	$run = mysqli_query($con, $get_img);
+	$run = mysqli_query($db, $get_img);
 	$row = mysqli_fetch_array($run);
 	$img = $row['p_image1'] ;
 	
@@ -35,7 +35,7 @@ if (isset($_GET['order_id'])) {
 	
 	$select_cust = "select * from customers where c_id = '$cid'";
 
-	$run_cust = mysqli_query($con,$select_cust);
+	$run_cust = mysqli_query($db,$select_cust);
 	$row_cust=mysqli_fetch_array($run_cust);
 	
 	
@@ -305,7 +305,7 @@ if (isset($_GET['order_id'])) {
 					if (isset($_POST['confirm_order'])) {
 						$update_id = $_GET['update_id'];
 						$get_order = "select  * from customer_order where order_id = '$update_id'";
-							$run_q = mysqli_query($con, $get_order);
+							$run_q = mysqli_query($db, $get_order);
 							$row_q= mysqli_fetch_array($run_q);
 							
 							$cid = $row_q['customer_id'];
