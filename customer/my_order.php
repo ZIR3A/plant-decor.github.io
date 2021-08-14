@@ -1,3 +1,11 @@
+<?php 
+
+include("includes/db.php");
+
+?>
+
+
+
 <div class="box">
 	<center>
 		<h1>
@@ -24,16 +32,13 @@
 			<tbody>
 				<?php
 				$customer_session = $_SESSION['c_email'];
-				$get_customer = "select * from customers where c_email='$customer_session'";
-				$run_cust = mysqli_query($con, $get_customer);
-				$row_cust =  mysqli_fetch_array($run_cust);
-				$customer_id  = $row_cust['c_id'];
+				$get_customer = "select * from customers where c_email = '$customer_session' ";
+				$run_cust = mysqli_query($db, $get_customer);
+				$row_custs = mysqli_fetch_array($run_cust);
+				$customer_id = $row_custs['c_id'];
 				$get_order = "select * from customer_order where customer_id='$customer_id'";
-				$run_order = mysqli_query($con, $get_order);
+				$run_order = mysqli_query($db, $get_order);
 				$i = 0;
-
-
-
 				while ($row_order = mysqli_fetch_array($run_order)) {
 					$order_id = $row_order['order_id'];
 					$order_dueamount = $row_order['due_amount'];
@@ -88,3 +93,4 @@
 		</table>
 	</div>
 </div>
+
